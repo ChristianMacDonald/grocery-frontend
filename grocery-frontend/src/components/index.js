@@ -1,5 +1,5 @@
 import Item from './item.jsx';
 
-export default {
+export {
   Item
 };
