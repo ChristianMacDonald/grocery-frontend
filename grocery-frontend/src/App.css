@@ -14,3 +14,20 @@ img, picture, video, canvas, svg {
 input, button, textarea, select {
   font: inherit;
 }
+
+.RevealButton {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+}
+
+.ShoppingCart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+}
+
+.ShoppingCart .Item {
+  width: 100%;
+}

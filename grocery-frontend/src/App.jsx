@@ -1,4 +1,7 @@
-import { Item  } from './components'; 
+import { useState } from 'react';
+import { Item } from './components';
+
+import "./App.css";
 
 const items = [
   {name: "Apple", price: 0.99, description: "A fresh red apple."},
@@ -9,11 +12,40 @@ const items = [
 ]
 
 function App() {
+  const [shoppingCart, setShoppingCart] = useState([]);
+  const [showShoppingCart, setShowShoppingCart] = useState(false);
+
   return (
     <div>
-      {items.map((item, index) => (
-        <Item key={index} name={item.name} price={item.price} description={item.description} />
-      ))}
+      <div className="ItemList">
+        {items.map((item, index) => (
+          <Item
+            key={index}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            onClick={() => setShoppingCart([...shoppingCart, item])}
+          />
+        ))}
+      </div>
+      {showShoppingCart ? (
+        <div className="ShoppingCart">
+          <h1>My Shopping Cart</h1>
+          {shoppingCart.map((item, index) => (
+            <Item
+              key={index}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+            />
+          ))}
+          <button className="CloseButton" onClick={() => setShowShoppingCart(false)}>Close</button>
+        </div>
+        )
+        : (
+          <button className="RevealButton" onClick={() => setShowShoppingCart(true)}>{"<<"}</button>
+        )
+      }
     </div>
   );
 }
