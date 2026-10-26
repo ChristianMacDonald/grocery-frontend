@@ -1,5 +1,3 @@
-import "./item.css";
-
 function Item(props) {
   return (
     <div className="Item" onClick={props.onClick}>

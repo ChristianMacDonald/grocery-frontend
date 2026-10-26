@@ -31,3 +31,21 @@ input, button, textarea, select {
 .ShoppingCart .Item {
   width: 100%;
 }
+
+.ItemList {
+  display: flex;
+  justify-content: center;
+  max-width: 60%;
+  margin: 0 20%;
+}
+
+.Item {
+  text-align: center;
+  background: gray;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 36pt;
+}

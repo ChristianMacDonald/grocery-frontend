@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Item } from './components';
+import { Item, ItemList } from './components';
 
 import "./App.css";
 
@@ -17,17 +17,8 @@ function App() {
 
   return (
     <div>
-      <div className="ItemList">
-        {items.map((item, index) => (
-          <Item
-            key={index}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            onClick={() => setShoppingCart([...shoppingCart, item])}
-          />
-        ))}
-      </div>
+      <h1 className='title'>Shop & Drop</h1>
+      <ItemList items={items} onItemClick={(item) => setShoppingCart([...shoppingCart, item])} />
       {showShoppingCart ? (
         <div className="ShoppingCart">
           <h1>My Shopping Cart</h1>
@@ -41,10 +32,9 @@ function App() {
           ))}
           <button className="CloseButton" onClick={() => setShowShoppingCart(false)}>Close</button>
         </div>
-        )
-        : (
-          <button className="RevealButton" onClick={() => setShowShoppingCart(true)}>{"<<"}</button>
-        )
+      ) : (
+        <button className="RevealButton" onClick={() => setShowShoppingCart(true)}>{"<<"}</button>
+      )
       }
     </div>
   );
